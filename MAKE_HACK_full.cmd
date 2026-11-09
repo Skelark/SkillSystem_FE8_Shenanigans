@@ -11,6 +11,7 @@ set "source_rom=%~dp0FE8_clean.gba"
 set "main_event=%~dp0ROMBuildfile.event"
 
 set "target_rom=%~dp0SkillsTest.gba"
+set "target_febuilder_rom=%~dp0../SkillsTest.gba"
 set "target_ups=%~dp0SkillsTest.ups"
 set "target_sym=%~dp0SkillsTest.sym"
 
@@ -79,6 +80,11 @@ echo:
 echo Generating sym file
 
 echo: | ( "%symcombo%" "%target_sym%" "%target_sym%" "%base_dir%\Tools\sym\VanillaOffsets.sym" )
+
+echo:
+echo Copying Final ROM to other folder
+
+copy "%target_rom%" "%target_febuilder_rom%"
 
 echo:
 echo Done!
